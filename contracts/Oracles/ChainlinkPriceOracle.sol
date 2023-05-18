@@ -147,8 +147,8 @@ contract ChainlinkPriceOracle is IChainlinkPriceOracle, BasePriceOracle {
         view
         returns (bool)
     {
-        uint256 currentScaledPrice = _convertIntoWstETHPrice(uint256(currentResponse.answer), currentResponse.decimals);
-        uint256 prevScaledPrice = _convertIntoWstETHPrice(uint256(prevResponse.answer), prevResponse.decimals);
+        uint256 currentScaledPrice = uint256(currentResponse.answer);
+        uint256 prevScaledPrice = uint256(prevResponse.answer);
 
         uint256 minPrice = Math.min(currentScaledPrice, prevScaledPrice);
         uint256 maxPrice = Math.max(currentScaledPrice, prevScaledPrice);
